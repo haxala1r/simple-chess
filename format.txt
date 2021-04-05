@@ -1,0 +1,23 @@
+In order to store board state, I used a custom format, which goes like this:
+
+- First line contains which color goes first. This is here, because the
+  player may save a state, then play later.
+  [W/B]
+
+- The second line contains the dimentions of the board, seperated by an 'x'
+  'HxW', e.g. '8x8' for a default game of chess.
+
+- The following lines all contain the pieces, and their positions.
+  The first character is the piece's first letter, the second is color.
+  Put N instead of Knight. After that, the coordinates of the piece.
+  [K/Q/P/B/R/N][W/B] [row]-[column]
+  Because the "statement" is at least 6 characters long, any line after the first
+  two that is shorter than 6 characters is to be ignored.
+  These "statements" are seperated by a newline.
+
+- The board is indexed starting from the top left. I.e. the top left square is
+0-0, the one to the right of that is 0-1, the one below that is 1-1.
+
+- moves are made by supplying 2 coordinates, seperated by a single space.
+  "1x1 2x1" moves the pawn on row 1 column 1 forward by a single space (to row
+  1 column 1).
